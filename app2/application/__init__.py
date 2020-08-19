@@ -5,4 +5,4 @@ import os
 app = Flask(__name__)
 
 
-from app2.application import routes
+from application import routes

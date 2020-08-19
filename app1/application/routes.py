@@ -4,15 +4,13 @@ from application import app
 
 
 
-@app.route('/')
-@app.route('/home')
+@app.route('/', methods=['GET'])
 def home():
     return render_template('home.html', title='Home')
 
 @app.route('/generate', methods=['GET','POST'])
 def generate():
-    print('HTTP GET Request (json):')
-    response = requests.get('http://localhost:5001/animal')
+    response = requests.get('http://localhost:5000/animal')
     json_response = response.json()
     display = str(json_response)
     response2 = requests.post('http://localhost:5001/noise',json = json_response)
