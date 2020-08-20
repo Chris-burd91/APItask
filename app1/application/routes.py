@@ -10,10 +10,10 @@ def home():
 
 @app.route('/generate', methods=['GET','POST'])
 def generate():
-    response = requests.get('http://localhost:5000/animal')
+    response = requests.get('http://app2:5001/animal')
     json_response = response.json()
     display = str(json_response)
-    response2 = requests.post('http://localhost:5001/noise',json = json_response)
+    response2 = requests.post('http://app2:5001/noise',json = json_response)
     json_response2 = response2.json()
     display2 = str(json_response2)
     
